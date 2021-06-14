@@ -24,6 +24,7 @@ class _InputPageState extends State<InputPage> {
   int weight = 60;
   int age = 15;
 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -126,7 +127,7 @@ class _InputPageState extends State<InputPage> {
                            icon: FontAwesomeIcons.minus,
                            onPressed: (){
                              setState(() {
-                               weight--;
+                               weight = (weight > 1 && weight <= 600) ? weight-1 : weight;
                              });
                            },
                          ),
@@ -137,7 +138,7 @@ class _InputPageState extends State<InputPage> {
                            icon: FontAwesomeIcons.plus,
                            onPressed: (){
                              setState(() {
-                              weight++;
+                               weight = (weight >= 1 && weight < 600) ? weight+1 : weight;
                              });
                            },
                          ),
@@ -166,8 +167,9 @@ class _InputPageState extends State<InputPage> {
                          RoundIconButton(
                            icon: FontAwesomeIcons.minus,
                            onPressed: (){
+                             int newAge = (age > 0 && age <= 110) ? age-1 : age;
                              setState(() {
-                               age--;
+                               age = newAge;
                              });
                            },
                          ),
@@ -178,7 +180,7 @@ class _InputPageState extends State<InputPage> {
                            icon: FontAwesomeIcons.plus,
                            onPressed: (){
                              setState(() {
-                               age++;
+                               age = (age >= 0 && age < 110) ? age+1 : age;
                              });
                            },
                          ),
